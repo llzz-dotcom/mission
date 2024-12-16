@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12星座占い</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8e8f8;
+            text-align: center;
+            color: #4a004a;
+        }
+        header {
+            background-color: #d480d4;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+            gap: 50px 100px;
+        }
+        .zodiac {
+            width: 150px;
+            background-color: #ffe4fe;
+            border: 2px solid #d480d4;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .zodiac-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #4a004a;
+        }
+        .zodiac button {
+            margin-top: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d480d4;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .zodiac button:hover {
+            background-color: #b05cb0;
+        }
+        .result-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            display: none;
+        }
+        .result-message {
+            background-color: #fff;
+            color: #4a004a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stars {
+            color: #ffd700;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        .close-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d480d4;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .close-button:hover {
+            background-color: #b05cb0;
+        }
+    </style>
+</head>
+<body>
+    <header>12星座占い</header>
+    <div class="container">
+        <div class="zodiac">
+            <div class="zodiac-name">おひつじ座</div>
+            <button onclick="showFortune('おひつじ座の金運')">金運</button>
+            <button onclick="showFortune('おひつじ座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('おひつじ座の仕事運')">仕事運</button>
+            <button onclick="showFortune('おひつじ座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">おうし座</div>
+            <button onclick="showFortune('おうし座の金運')">金運</button>
+            <button onclick="showFortune('おうし座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('おうし座の仕事運')">仕事運</button>
+            <button onclick="showFortune('おうし座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">ふたご座</div>
+            <button onclick="showFortune('ふたご座の金運')">金運</button>
+            <button onclick="showFortune('ふたご座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('ふたご座の仕事運')">仕事運</button>
+            <button onclick="showFortune('ふたご座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">かに座</div>
+            <button onclick="showFortune('かに座の金運')">金運</button>
+            <button onclick="showFortune('かに座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('かに座の仕事運')">仕事運</button>
+            <button onclick="showFortune('かに座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">しし座</div>
+            <button onclick="showFortune('しし座の金運')">金運</button>
+            <button onclick="showFortune('しし座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('しし座の仕事運')">仕事運</button>
+            <button onclick="showFortune('しし座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">おとめ座</div>
+            <button onclick="showFortune('おとめ座の金運')">金運</button>
+            <button onclick="showFortune('おとめ座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('おとめ座の仕事運')">仕事運</button>
+            <button onclick="showFortune('おとめ座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">てんびん座</div>
+            <button onclick="showFortune('てんびん座の金運')">金運</button>
+            <button onclick="showFortune('てんびん座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('てんびん座の仕事運')">仕事運</button>
+            <button onclick="showFortune('てんびん座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">さそり座</div>
+            <button onclick="showFortune('さそり座の金運')">金運</button>
+            <button onclick="showFortune('さそり座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('さそり座の仕事運')">仕事運</button>
+            <button onclick="showFortune('さそり座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">いて座</div>
+            <button onclick="showFortune('いて座の金運')">金運</button>
+            <button onclick="showFortune('いて座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('いて座の仕事運')">仕事運</button>
+            <button onclick="showFortune('いて座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">やぎ座</div>
+            <button onclick="showFortune('やぎ座の金運')">金運</button>
+            <button onclick="showFortune('やぎ座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('やぎ座の仕事運')">仕事運</button>
+            <button onclick="showFortune('やぎ座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">みずがめ座</div>
+            <button onclick="showFortune('みずがめ座の金運')">金運</button>
+            <button onclick="showFortune('みずがめ座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('みずがめ座の仕事運')">仕事運</button>
+            <button onclick="showFortune('みずがめ座の健康運')">健康運</button>
+        </div>
+        <div class="zodiac">
+            <div class="zodiac-name">うお座</div>
+            <button onclick="showFortune('うお座の金運')">金運</button>
+            <button onclick="showFortune('うお座の恋愛運')">恋愛運</button>
+            <button onclick="showFortune('うお座の仕事運')">仕事運</button>
+            <button onclick="showFortune('うお座の健康運')">健康運</button>
+        </div>
+    <div class="result-overlay" id="result-overlay">
+        <div class="result-message" id="result-message"></div>
+        <div class="stars" id="result-stars"></div>
+        <button class="close-button" onclick="closeResult()">閉じる</button>
+    </div>
+
+    <script>
+        function showFortune(zodiacSign) {
+            const starRatings = [1, 2, 3, 4, 5];
+            const randomStars = starRatings[Math.floor(Math.random() * starRatings.length)];
+            const overlay = document.getElementById('result-overlay');
+            const message = document.getElementById('result-message');
+            const stars = document.getElementById('result-stars');
+
+            message.textContent = `${zodiacSign}は：`;
+            stars.innerHTML = '★'.repeat(randomStars);
+
+            overlay.style.display = 'flex';
+        }
+
+        function closeResult() {
+            const overlay = document.getElementById('result-overlay');
+            overlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
